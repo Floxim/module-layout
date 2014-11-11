@@ -7,7 +7,8 @@ return array(
             'settings' => array(
                 'code' => array(
                     'type' => 'text',
-                    'label' => fx::alang('HTML code snippet')
+                    'label' => fx::alang('HTML code snippet'),
+                    'code' => true
                 )
             )
         )
