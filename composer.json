@@ -1,0 +1,5 @@
+{
+  "name" : "floxim/module-layout",
+  "description" : "Floxim layout module.",
+  "type" : "floxim-module"
+}
