@@ -10,11 +10,28 @@ class Controller extends \Floxim\Floxim\Controller\Widget
     public function process()
     {
         $res = parent::process();
+        
+        $is_new = $this->isNewBlock();
+        
+        $this->assign('is_overriden', $this->getParam('is_overriden'));
+        
         if (isset($res['areas'])) {
             foreach ($res['areas'] as $i => &$area) {
                 if (!isset($area['id'])) {
-                    //$area['id'] = (isset($area['keyword']) ? $area['keyword'] : $i).'_'.$this->getParam('infoblock_id');
                     $area['id'] = 'grid_' . (isset($area['keyword']) ? $area['keyword'] : $i) . '_' . $this->getParam('infoblock_id');
+                }
+                $area['blocks'] = !$is_new ? fx::page()->getAreaInfoblocks($area['id']) : array();
+                if (!$area['name']) {
+                    $area['name'] = fx::alang('Column %s', null, $i+1);
+                }
+                if (fx::isAdmin()) {
+                    if ($is_new || ($this->getParam('is_overriden') && count($area['blocks']) === 0) ) {
+                        $area['placeholder'] = fx::alang(
+                             '%s is empty, you can add blocks here',
+                            null,
+                            $area['name']
+                        );
+                    }
                 }
             }
         }
@@ -59,8 +76,10 @@ class Controller extends \Floxim\Floxim\Controller\Widget
         return array(
             'settings' => array(
                 'cols' => array(
+                    'label' => fx::alang('Columns'),
                     'type' => 'livesearch',
-                    'values' => $values
+                    'values' => $values,
+                    'value' => 'n-w'
                 )
             )
         );
@@ -74,7 +93,7 @@ class Controller extends \Floxim\Floxim\Controller\Widget
         $count_wide = 0;
         foreach ($parts as $col_num => $col) {
             $res[]= array(
-                'name' => $col === 'n' ? 'Sidebar' : 'Column',
+                //'name' => $col === 'n' ? 'Sidebar' : 'Column',
                 'keyword' => 'col_'.($col_num+1),
                 'size' => $col === 'n' ? 'narrow' : 'wide',
                 'width' => $col
