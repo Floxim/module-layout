@@ -78,6 +78,7 @@ class Controller extends \Floxim\Floxim\Controller\Widget
                 'cols' => array(
                     'label' => fx::alang('Columns'),
                     'type' => 'livesearch',
+                    'allow_empty' => false,
                     'values' => $values,
                     'value' => 'n-w'
                 )
