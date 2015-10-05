@@ -74,6 +74,7 @@ class Controller extends \Floxim\Floxim\Controller\Widget
         }
         
         return array(
+            'name' => fx::alang('Columns'),
             'settings' => array(
                 'cols' => array(
                     'label' => fx::alang('Columns'),
