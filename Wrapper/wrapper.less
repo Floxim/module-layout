@@ -1,0 +1,16 @@
+.wrapper {
+    &_width_fullwidth {
+        .antipad_y();
+        .fullwidth();
+    }
+    &_width_antipad {
+        .antipad();
+    }
+    &_width_fullwidth_wrapper {
+        .antipad_y();
+        .fullwidth();
+        .wrapper__content {
+            .layout_width();
+        }
+    }
+}
