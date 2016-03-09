@@ -11,7 +11,7 @@
     {/if}>
     {css}wrapper.less{/css}
     {@wrapper_style type="style" mask="nav_wrapper_style_*" /}
-    {@width values="`array('default' => 'default', 'fullwidth' => 'fullwidth', 'antipad' => 'antipad', 'fullwidth_wrapper' => 'fullwidth_wrapper')`" label="width" /}
+    {@width values="`fx::module('floxim.layout')->getWrapperSizingVariants()`" type="livesearch" allow_empty="N" default="default" label="width" /}
     <div fx:e="content">{$content}</div>
 </div>
 
