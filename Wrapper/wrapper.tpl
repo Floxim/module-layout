@@ -4,7 +4,7 @@
     fx:template="nav_wrapper" 
     fx:b="wrapper type_nav style_{$wrapper_style} width_{$width} {if $wrapper_style == 'cover'}.dark{/if}" 
     fx:of="wrapper"
-    fx:suit="header,content,footer,sub_header"
+    {*fx:suit="header,content,footer,sub_header"*}
     {if $wrapper_style == 'cover'}
         {@background_image type="image" label="Картинка-фон" /}
         style="background-image:url('{$background_image}')"
