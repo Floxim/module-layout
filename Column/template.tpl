@@ -2,7 +2,8 @@
     fx:template="columns" 
     fx:of="list" 
     fx:name="Columns"
-    fx:b="columns {if $columns_height}height_{$columns_height}{/if}">
+    fx:b="columns {if $columns_height}height_{$columns_height}{/if} style_{$columns_style}">
+    {@columns_style type="style" mask="columns_style_*" /}
     {@columns_height label="Высота блока" values="`array('low' => 'Низкий', 'high' => 'Высокий')`" /}
     {@pad label="Отступы" type="checkbox" default="1" /}
     {css extend="1"}columns.less{/css}

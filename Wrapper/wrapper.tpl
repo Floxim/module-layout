@@ -4,13 +4,13 @@
     fx:template="nav_wrapper" 
     fx:b="wrapper type_nav style_{$wrapper_style} width_{$width} {if $wrapper_style == 'cover'}.dark{/if}" 
     fx:of="wrapper"
-    fx:suit="header,content,footer"
+    fx:suit="header,content,footer,sub_header"
     {if $wrapper_style == 'cover'}
         {@background_image type="image" label="Картинка-фон" /}
         style="background-image:url('{$background_image}')"
     {/if}>
     {css}wrapper.less{/css}
-    {@wrapper_style type="style" mask="nav_wrapper_style_*" /}
+    {@wrapper_style type="style" mask="wrapper_style_*" /}
     {@width values="`fx::module('floxim.layout')->getWrapperSizingVariants()`" type="livesearch" allow_empty="N" default="default" label="width" /}
     <div fx:e="content">{$content}</div>
 </div>
@@ -27,7 +27,7 @@
         label="Заголовок" 
         values="`array('none' => 'Нет', '' => 'Вариант 1', 'variant2' => 'Вариант 2', 'variant3' => 'Вариант 3')`" default="none"}
         
-    {@wrapper_style type="style" mask="content_wrapper_style_*" /}
+    {@wrapper_style type="style" mask="wrapper_style_*" /}
     
     {@width values="`array('default' => 'default', 'fullwidth' => 'fullwidth', 'antipad' => 'antipad', 'fullwidth_wrapper' => 'fullwidth_wrapper')`" label="width" /}
         
