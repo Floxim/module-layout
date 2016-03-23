@@ -26,23 +26,6 @@
         }
     }
     
-    &_height_low {
-        .columns__col {
-            vertical-align: middle;
-            &:last-child {
-                text-align:right;
-            }
-        }
-        .columns__area-wrapper {
-            line-height:0px;
-        }
-        .columns__block {
-            display:inline-block;
-            line-height:130%;
-            vertical-align: middle;
-        }
-    }
-    
     .fx_hidden_placeholded_block {
         margin:2px;
         padding:20px;
@@ -57,16 +40,22 @@
 }
 
 .fx_col_resize_handler {
-    @size:10px;
+    @size:4px;
     position: absolute;
     bottom: 0px;
     right: 0px;
     width: @size;
-    height: @size;
-    border-radius: @size;
-    background: #FE0;
+    //height: @size;
+    height:100%;
+    //border-radius: @size;
+    //background: #FE0;
     cursor:ew-resize;
     z-index:100;
     margin-right: @size * -0.5;
-    margin-bottom: @size * -0.5;
+    border-left:1px dotted #ccc;
+    border-right:1px dotted #ccc;
+    //margin-bottom: @size * -0.5;
+    .fx_mode_view & {
+        display:none;
+    }
 }
