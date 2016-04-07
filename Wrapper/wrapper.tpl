@@ -16,3 +16,50 @@
         label="width" /}
     <div fx:e="content">{$content}</div>
 </div>
+
+<div 
+    fx:template="content_wrapper" 
+    fx:b="wrapper type_content header_{$header_variant} style_{$wrapper_style} width_{$width}" 
+    fx:of="wrapper" 
+    fx:size="high"
+    fx:suit="content,column_*">
+    {css}wrapper.less{/css}
+    {@has_header 
+        type="checkbox" 
+        label="Заголовок" 
+        default="0"}
+        
+    {@wrapper_style type="style" mask="wrapper_style_*" /}
+    
+    {@width 
+        values="`fx::module('floxim.layout')->getWrapperSizingVariants()`" 
+        type="livesearch" 
+        allow_empty="N" 
+        default="default" 
+        label="width" /}
+        
+    {set $ib_result = $infoblock.getResult() /}
+    {set $has_link = $ib_result.more_url /}
+    {if $has_link}
+        {@link_position 
+            type="select" 
+            label="Ссылка &laquo;Подробнее&raquo;" 
+            values="`array('none' => 'Не показывать', 'before' => 'Под заголовком', 'after' => 'После блока')`"}
+
+        {set $link_html}
+            <div fx:if="$link_position !== 'none' && $infoblock" fx:e="link position_{$link_position}">
+
+                <a href="{%link label="Ссылка"}{$ib_result.more_url /}{/%}">{%more label="Текст на кнопке"}Подробнее!{/%}</a>
+            </div>
+        {/set}
+    {/if}
+    
+    <div fx:e="header" fx:if="$has_header || $link_position == 'before'">
+        <h2 fx:if="$header_variant != 'none'" fx:e="title {$header_variant}">
+            <span>{%header label="Заголовок блока"}{$infoblock.name /}{/%}</span>
+        </h2>
+        {if $link_position == 'before'}{$link_html /}{/if}
+    </div>
+    <div fx:e="content">{$content}</div>
+    {if $has_link && $link_position == 'after'}{$link_html /}{/if}
+</div>
