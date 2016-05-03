@@ -9,13 +9,13 @@ class Module extends \Floxim\Floxim\Component\Module\Entity {
         fx::template()->import('floxim.layout.wrapper');
     }
     
-    public function getWrapperSizingVariants()
+    public function _getWrapperSizingVariants()
     {
         $variants = array(
             'default',
             'fullwidth',
             'antipad',
-            'fullwidth_wrapper'
+            'fullwidth-outer'
         );
         $res = array();
         foreach($variants as $v) {

@@ -29,9 +29,11 @@ $(function() {
             $dragger.draggable({
                 axis:'x',
                 start:function() {
+                    $fx.front.freeze();
                     $node.addClass('columns_show-layout');
                 },
                 stop: function() {
+                    $fx.front.unfreeze();
                     $node.removeClass('columns_show-layout');
                     $all_draggers.attr('style', '');
                     $all_draggers.each(function() {
