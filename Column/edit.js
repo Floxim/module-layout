@@ -14,7 +14,7 @@ $(function() {
         
         $cols.each(function() {
            var $col = $(this),
-               $dragger = $('<div class="fx_col_resize_handler"></div>'),
+               $dragger = $('<ins class="fx_col_resize_handler"></ins>'),
                $next_col = $col.next();
                
             $dragger.data('col', $col[0]);

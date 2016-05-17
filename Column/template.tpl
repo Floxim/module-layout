@@ -24,7 +24,7 @@
                 {elseif $max_blocks_per_column && count($blocks) >= $max_blocks_per_column}
                     fx_area_no_add
                 {/if}"
-            style="width:{if $item.id}{$width editable="false"}{else}30{/if}%;">
+            style="width:{if $item.id}{= round($width)}{else}30{/if}%;">
             {if !$id}
                 <div fx:e="placeholder">{$name}</div>
             {else}
