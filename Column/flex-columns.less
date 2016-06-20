@@ -1,8 +1,7 @@
 .columns {
     //min-width:100%;
+    width:100%;
     display:flex;
-    
-    //.antipad();
     
     &__col {
         position:relative;
@@ -30,16 +29,12 @@
     bottom: 0px;
     right: 0px;
     width: @size;
-    //height: @size;
     height:100%;
-    //border-radius: @size;
-    //background: #FE0;
     cursor:ew-resize;
     z-index:100;
     margin-right: @size * -0.5;
     border-left:1px dotted #ccc;
     border-right:1px dotted #ccc;
-    //margin-bottom: @size * -0.5;
     .fx_mode_view & {
         display:none;
     }

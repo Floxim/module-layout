@@ -10,6 +10,9 @@ return array(
                 '!limit' => 0,
                 '!parent_type' => 'none'
             )
+        ),
+        'list_filtered, list_selected' => array(
+            'disabled' => true
         )
     )
 );

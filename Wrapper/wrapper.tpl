@@ -2,7 +2,7 @@
     fx:template="wrapper" 
     fx:b="wrapper" 
     fx:of="wrapper"
-    fx:container="'wrapper'">
+    fx:container="'wrapper_' . $infoblock.id">
     {css}wrapper.less{/css}
     {js}wrapper.js{/js}
     <div fx:e="before" fx:hide-empty>{apply wrapper_before /}</div>

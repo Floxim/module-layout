@@ -7,7 +7,7 @@ class Entity extends \Floxim\Main\Content\Entity
 {
     public function _getAreaKeyword() 
     {
-        return 'column_'.$this['id'];
+        return $this['id'] ? 'column_'.$this['id'] : 'column_new-in-'.$this['infoblock_id'];
     }
     
     public function beforeSave()

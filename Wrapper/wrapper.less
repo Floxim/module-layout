@@ -1,18 +1,26 @@
 .wrapper {
     flex-direction:column;
-    min-width:100%;
+    //min-width:100%;
     
     &__content, &__before, &__after {
         display:flex;
         align-self:stretch;
         flex-direction:column;
+        .fx-container_align_left > & {
+            align-items:flex-start;
+        }
         .fx-container_align_center > & {
             align-items:center;
         }
+        .fx-container_align_right > & {
+            align-items:flex-end;
+        }
     }
-    &.fx-container_sizing_fullwidth-outer {
+    &.fx-container_width_full-outer {
+        /*
         & > .wrapper__content {
             .layout_width();
         }
+        */
     }
 }
