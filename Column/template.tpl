@@ -26,7 +26,7 @@
                 {/if}"
             style="width:{if $item.id}{= round($width)}{else}30{/if}%;">
             {if !$id}
-                <div fx:e="placeholder"></div>
+                <div fx:e="placeholder">{$name}</div>
             {else}
                 {each $blocks as $ib}
                     {$ib.render() /}

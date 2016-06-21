@@ -85,6 +85,11 @@ $(function() {
             if (!$col.is('.columns__col')) {
                 return;
             }
+            $all_cols = $('.columns__col', $node);
+            if ($all_cols.length === 1) {
+                return;
+            }
+            return;
             var $prev_col = $col.prev('.columns__col');
             var c_area_meta = $col.data('fx_area'),
                 infoblock_id = $col.closest('.fx_infoblock').data('fx_infoblock').id;
@@ -102,7 +107,6 @@ $(function() {
                 }
             }
             $col.data('fx_area', c_area_meta);
-            console.log(c_area_meta);
             $col.on('fx_deselect.column_adder', function(e) {
                 $fx.front.outline_block_off($(e.target));
                 e.stopImmediatePropagation();
