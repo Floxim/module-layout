@@ -2,9 +2,7 @@
     fx:template="wrapper" 
     fx:b="wrapper" 
     fx:of="wrapper"
-    fx:container="'wrapper_' . $infoblock.id">
-    {css}wrapper.less{/css}
-    {js}wrapper.js{/js}
+    fx:styled-inline>
     <div fx:e="before" fx:hide-empty>{apply wrapper_before /}</div>
     <div fx:e="content">{$infoblock.getOutput()}</div>
     <div fx:e="after" fx:hide-empty>{apply wrapper_after /}</div>

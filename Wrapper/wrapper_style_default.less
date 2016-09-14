@@ -1,0 +1,63 @@
+/*
+name: Default
+vars:
+    background:
+        type: css-background
+        label: Фон
+    padding:
+        type: measures
+        prop: padding
+        label: Padding
+    margin:
+        type: measures
+        prop: margin
+        label: Margin
+    width:
+        type: livesearch
+        label: Ширина
+        allow_empty: false
+        values:
+            full: На весь экран
+            container: Ширина контейнера
+            auto: Авто
+            layout: Ширина лейаута
+            layout_outer: Лейаут + отступ
+            custom:
+                custom: true
+                value: 100
+                units: %
+                type: number
+    align_self:
+        type: livesearch
+        label: Выравнивание
+        allow_empty: false
+        values:
+            auto: Авто
+            flex-start: Слева
+            center: По центру
+            flex-end: Справа
+container:
+    lightness: background
+    width: width
+*/
+.wrapper_style_default(
+    @background:none;
+    @padding:0rem;
+    @margin:0rem;
+    @width: container;
+    @align_self: auto;
+) {
+    padding:@padding;
+    margin:@margin;
+    display:flex;
+    flex-direction: column;
+    .background(@background);
+    & when (@align_self = auto) {
+        align-self: flex-start;
+    }
+    & when not(@align_self  = auto) {
+        align-self: @align_self;
+        align-items: @align_self;
+    }
+    .width(@width);
+}
