@@ -36,6 +36,12 @@ vars:
             flex-start: Слева
             center: По центру
             flex-end: Справа
+    border_radius:
+        type: measures
+        prop: corners
+        label: Углы
+        min: 0
+        max: 100
 container:
     lightness: background
     width: width
@@ -46,12 +52,14 @@ container:
     @margin:0rem;
     @width: container;
     @align_self: auto;
+    @border_radius: 0;
 ) {
     padding:@padding;
     margin:@margin;
     display:flex;
     flex-direction: column;
     .background(@background);
+    border-radius: @border_radius;
     & when (@align_self = auto) {
         align-self: flex-start;
     }
