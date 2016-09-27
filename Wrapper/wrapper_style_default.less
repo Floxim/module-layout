@@ -17,25 +17,17 @@ vars:
         label: Ширина
         allow_empty: false
         values:
+            none: Ширина контейнера
             full: На весь экран
-            container: Ширина контейнера
             auto: Авто
             layout: Ширина лейаута
-            layout_outer: Лейаут + отступ
             custom:
                 custom: true
                 value: 100
                 units: %
                 type: number
-    align_self:
-        type: livesearch
-        label: Выравнивание
-        allow_empty: false
-        values:
-            auto: Авто
-            flex-start: Слева
-            center: По центру
-            flex-end: Справа
+    align:
+        type: css-align
     border_radius:
         type: measures
         prop: corners
@@ -45,13 +37,14 @@ vars:
 container:
     lightness: background
     width: width
+    align: align
 */
 .wrapper_style_default(
     @background:none;
     @padding:0rem;
     @margin:0rem;
     @width: container;
-    @align_self: auto;
+    @align: none;
     @border_radius: 0;
 ) {
     padding:@padding;
@@ -60,12 +53,8 @@ container:
     flex-direction: column;
     .background(@background);
     border-radius: @border_radius;
-    & when (@align_self = auto) {
-        align-self: flex-start;
-    }
-    & when not(@align_self  = auto) {
-        align-self: @align_self;
-        align-items: @align_self;
-    }
+    
+    .align-self(@align);
+    
     .width(@width);
 }
