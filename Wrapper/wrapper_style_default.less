@@ -52,7 +52,10 @@ container:
     display:flex;
     flex-direction: column;
     .background(@background);
-    border-radius: @border_radius;
+    
+    & when not(@border_radius = none) {
+        border-radius: @border_radius;
+    }
     
     .align-self(@align);
     
