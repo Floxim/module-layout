@@ -1,22 +1,12 @@
 .@{namespace}wrapper {
-    flex-direction:column;
-    //min-width:100%;
+    display:flex;
+    flex-direction: column;
+    
     
     &__content, &__before, &__after {
         display:flex;
         align-self:stretch;
+        width:100%;
         flex-direction:column;
-        .fx-container_align_left > & {
-            align-items:flex-start;
-        }
-        .fx-container_align_center > & {
-            align-items:center;
-        }
-        .fx-container_align_right > & {
-            align-items:flex-end;
-        }
-    }
-    .fx-container_height_grow > &__content {
-        flex-grow:1;
     }
 }

@@ -3,6 +3,7 @@
     fx:b="wrapper" 
     fx:of="wrapper"
     fx:styled-inline>
+    {css}wrapper.less{/css}
     <div fx:e="before" fx:hide-empty>{apply wrapper_before /}</div>
     <div fx:e="content">{$infoblock.getOutput()}</div>
     <div fx:e="after" fx:hide-empty>{apply wrapper_after /}</div>

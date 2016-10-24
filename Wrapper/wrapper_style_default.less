@@ -49,12 +49,14 @@ container:
 ) {
     padding:@padding;
     margin:@margin;
-    display:flex;
-    flex-direction: column;
     .background(@background);
     
     & when not(@border_radius = none) {
         border-radius: @border_radius;
+    }
+    
+    #__content {
+        .align-items(@align);
     }
     
     .align-self(@align);
