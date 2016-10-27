@@ -28,12 +28,10 @@ vars:
                 type: number
     align:
         type: css-align
-    border_radius:
+    border:
         type: measures
-        prop: corners
-        label: Углы
-        min: 0
-        max: 100
+        prop: borders
+        label: Рамка
 container:
     lightness: background
     width: width
@@ -45,15 +43,18 @@ container:
     @margin:0rem;
     @width: container;
     @align: none;
-    @border_radius: 0;
+    @border: none;
 ) {
     padding:@padding;
     margin:@margin;
     .background(@background);
     
+    /*
     & when not(@border_radius = none) {
         border-radius: @border_radius;
     }
+    */
+    .border(@border);
     
     #__content {
         .align-items(@align);
