@@ -19,6 +19,7 @@
 </div>
 
 {preset id="wrapper#titled" name="С заголовком"}
+    {set $show_header = true /}
     {use as="wrapper_before"}
         {set $header}
             <span>{%header label="Заголовок блока"}{$infoblock.name /}{/%}</span>
