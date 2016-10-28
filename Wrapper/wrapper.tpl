@@ -4,9 +4,18 @@
     fx:of="wrapper"
     fx:styled-inline>
     {css}wrapper.less{/css}
-    <div fx:e="before" fx:hide-empty>{apply wrapper_before /}</div>
+    
+    {@show_header label="Заголовок?" type="checkbox" default="0" /}
+    
+    <div fx:e="before" fx:hide-empty fx:if="$show_header">
+        {apply floxim.ui.header:header}
+            {$header}<span>{%header label="Заголовок блока"}{$infoblock.name /}{/%}</span>{/$}
+        {/apply}
+    </div>
     <div fx:e="content">{$infoblock.getOutput()}</div>
+    {*
     <div fx:e="after" fx:hide-empty>{apply wrapper_after /}</div>
+    *}
 </div>
 
 {preset id="wrapper#titled" name="С заголовком"}
