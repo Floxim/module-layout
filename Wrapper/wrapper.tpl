@@ -2,6 +2,7 @@
     fx:template="wrapper" 
     fx:b="wrapper" 
     fx:of="wrapper"
+    fx:name="По умолчанию"
     fx:styled-inline>
     {css}wrapper.less{/css}
     
