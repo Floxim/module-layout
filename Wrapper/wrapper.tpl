@@ -28,3 +28,23 @@
         {apply floxim.ui.header:header /}
     {/use}
 {/preset}
+
+
+<div 
+    fx:template="wrapper_complex"
+    fx:b="wrapper"
+    fx:of="wrapper"
+    fx:name="Сложный">
+    {apply floxim.ui.box:box with $box_id = 'blockbox', $field_source = 'block' /}
+</div>
+
+{template id="wrapper_content"}
+    {$infoblock.getOutput()}
+{/template}
+
+{template id="wrapper_header"}
+    {set $header}
+        <span>{%header label="Заголовок блока"}{$infoblock.name /}{/%}</span>
+    {/set}
+    {apply floxim.ui.header:header /}
+{/template}
