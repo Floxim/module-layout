@@ -29,6 +29,8 @@ vars:
     border:
         type: measures
         prop: borders
+    shadow:
+        type: css-shadow
 container:
     lightness: background
     width: width
@@ -41,6 +43,7 @@ container:
     @width: container;
     @align: none;
     @border: none;
+    @shadow: none;
 ) {
     padding:@padding;
     margin:@margin;
@@ -60,4 +63,12 @@ container:
     .align-self(@align);
     
     .width(@width);
+    
+    .box-shadow(@shadow);
+    
+    & when not(@width = auto) {
+        & > #__content > .fx-block {
+            width:100%;
+        }
+    }
 }
