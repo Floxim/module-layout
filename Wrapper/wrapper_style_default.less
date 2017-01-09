@@ -40,7 +40,7 @@ container:
     @background:none;
     @padding:0rem;
     @margin:0rem 0rem 0rem 0rem;
-    @width: container;
+    @width: none;
     @align: none;
     @border: none;
     @shadow: none;
@@ -60,7 +60,9 @@ container:
         .align-items(@align);
     }
     
-    .align-self(@align);
+    & when not(@width = none) {
+        .align-self(@align);
+    }
     
     .width(@width; @margin);
     
