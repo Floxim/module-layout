@@ -1,12 +1,6 @@
 /*
 name: Default
 vars:
-    background:
-        type: css-background
-        label: Фон
-    padding:
-        type: measures
-        prop: padding
     margin:
         type: measures
         prop: margin
@@ -26,46 +20,33 @@ vars:
                 type: number
     align:
         type: css-align
-    border:
-        type: measures
-        prop: borders
-    shadow:
-        type: css-shadow
 container:
-    lightness: background
     width: width
     align: align
 */
-.wrapper_style_default(
-    @background:none;
-    @padding:0rem;
+.w_style_default(
     @margin:0rem 0rem 0rem 0rem;
     @width: none;
     @align: none;
-    @border: none;
-    @shadow: none;
 ) {
-    padding:@padding;
     margin:@margin;
-    .background(@background);
     
-    .border(@border);
-    
+    /*
     #__content {
         .align-items(@align);
     }
-    
+    */
     & when not(@width = none) {
         .align-self(@align);
     }
     
     .width(@width; @margin);
     
-    .box-shadow(@shadow);
-    
+    /*
     & when not(@width = auto) {
         & > #__content > .fx-block {
             width:100%;
         }
     }
+    */
 }

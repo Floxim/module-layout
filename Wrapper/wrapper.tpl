@@ -35,9 +35,10 @@
 
 <div 
     fx:template="wrapper_complex"
-    fx:b="wrapper"
-    fx:of="wrapper"
-    fx:name="Сложный">
+    fx:b="w"
+    fx:of="wrapper#1"
+    fx:name="Сложный"
+    fx:styled-inline>
     {apply floxim.ui.box:box with $box_id = 'blockbox', $field_source = 'block' /}
 </div>
 
