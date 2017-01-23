@@ -47,8 +47,10 @@
 {/template}
 
 {template id="wrapper_header"}
-    {set $header}
-        <span>{%header label="Заголовок блока"}{$infoblock.name /}{/%}</span>
-    {/set}
-    {apply floxim.ui.header:header /}
+    {set $ibid = $infoblock.id /}
+    {apply floxim.ui.header:header}
+        {$header}
+            <span>{%header_$ibid label="Заголовок блока"}{$infoblock.name /}{/%}</span>
+        {/$}
+    {/apply}
 {/template}
