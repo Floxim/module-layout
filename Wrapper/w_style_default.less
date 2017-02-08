@@ -9,7 +9,7 @@ vars:
         label: Ширина
         allow_empty: false
         values:
-            none: Ширина контейнера
+            none: 100%
             full: На весь экран
             auto: Авто
             layout: Ширина лейаута
@@ -31,22 +31,9 @@ container:
 ) {
     margin:@margin;
     
-    /*
-    #__content {
-        .align-items(@align);
-    }
-    */
     & when not(@width = none) {
         .align-self(@align);
     }
     
     .width(@width; @margin);
-    
-    /*
-    & when not(@width = auto) {
-        & > #__content > .fx-block {
-            width:100%;
-        }
-    }
-    */
 }

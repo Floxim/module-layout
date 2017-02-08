@@ -16,9 +16,6 @@
         {/apply}
     </div>
     <div fx:e="content">{$infoblock.getOutput()}</div>
-    {*
-    <div fx:e="after" fx:hide-empty>{apply wrapper_after /}</div>
-    *}
 </div>
 
 {preset id="wrapper#titled" name="С заголовком"}
@@ -32,15 +29,19 @@
     {/use}
 {/preset}
 
-
 <div 
     fx:template="wrapper_complex"
     fx:b="w"
     fx:of="wrapper#1"
     fx:name="Сложный"
-    fx:styled-inline>
+    fx:styled-inline
+    fx:style-params="
+        width_type: {$context.getContainerWidthType() /};
+        width_value: {$context.getContainerWidthValue() /};
+    ">
     {apply floxim.ui.box:box with $box_id = 'blockbox', $field_source = 'block' /}
 </div>
+
 
 {template id="wrapper_content"}
     {$infoblock.getOutput()}
