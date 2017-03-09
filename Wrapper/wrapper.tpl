@@ -1,7 +1,7 @@
 <div 
     fx:template="wrapper" 
     fx:b="wrapper" 
-    fx:of="wrapper"
+    {*fx:of="wrapper"*}
     fx:name="По умолчанию"
     fx:styled-inline>
     {css}wrapper.less{/css}
@@ -32,7 +32,7 @@
 <div 
     fx:template="wrapper_complex"
     fx:b="w"
-    fx:of="wrapper#1"
+    fx:of="wrapper"
     fx:name="Сложный"
     fx:styled-inline
     fx:style-params="
